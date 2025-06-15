@@ -1,5 +1,6 @@
 package br.com.digio.api.controller;
 
+import br.com.digio.api.dto.ClienteFielDTO;
 import br.com.digio.api.dto.CompraResponseDTO;
 import br.com.digio.api.service.CompraService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,5 +27,10 @@ public class CompraController {
     @GetMapping("maior_compra/{ano}")
     public CompraResponseDTO maiorCompraPorAno(@PathVariable String ano) {
         return service.obterMaiorCompraPorAno(ano);
+    }
+
+    @GetMapping("/clientes_fieis")
+    public List<ClienteFielDTO> clientesMaisFieis() {
+        return service.obterTop3ClientesFieis();
     }
 }
