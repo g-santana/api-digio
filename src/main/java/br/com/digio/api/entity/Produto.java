@@ -21,7 +21,7 @@ public class Produto {
     private String safra;
 
     @Column(name = "ano_compra")
-    private Integer anoCompra;
+    private String anoCompra;
 
     protected Produto() {}
 
@@ -57,11 +57,11 @@ public class Produto {
         this.safra = safra;
     }
 
-    public Integer getAnoCompra() {
+    public String getAnoCompra() {
         return anoCompra;
     }
 
-    public void setAnoCompra(Integer anoCompra) {
+    public void setAnoCompra(String anoCompra) {
         this.anoCompra = anoCompra;
     }
 

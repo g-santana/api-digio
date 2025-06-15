@@ -8,7 +8,7 @@ public record CompraResponseDTO(
         String tipoVinho,
         BigDecimal preco,
         String safra,
-        Integer anoCompra,
+        String anoCompra,
         Integer quantidade,
         BigDecimal valorTotal
 ) {}
