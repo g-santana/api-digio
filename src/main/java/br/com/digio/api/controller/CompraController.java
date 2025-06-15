@@ -17,7 +17,7 @@ public class CompraController {
         this.service = service;
     }
 
-    @GetMapping
+    @GetMapping("compras")
     public List<CompraResponseDTO> listarComprasOrdenadas() {
         return service.listarComprasOrdenadasPorValor();
     }
