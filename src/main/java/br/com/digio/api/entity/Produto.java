@@ -25,44 +25,20 @@ public class Produto {
 
     protected Produto() {}
 
-    public Integer getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(Integer codigo) {
-        this.codigo = codigo;
-    }
-
     public String getTipoVinho() {
         return tipoVinho;
-    }
-
-    public void setTipoVinho(String tipoVinho) {
-        this.tipoVinho = tipoVinho;
     }
 
     public BigDecimal getPreco() {
         return preco;
     }
 
-    public void setPreco(BigDecimal preco) {
-        this.preco = preco;
-    }
-
     public String getSafra() {
         return safra;
     }
 
-    public void setSafra(String safra) {
-        this.safra = safra;
-    }
-
     public String getAnoCompra() {
         return anoCompra;
-    }
-
-    public void setAnoCompra(String anoCompra) {
-        this.anoCompra = anoCompra;
     }
 
     @Override
