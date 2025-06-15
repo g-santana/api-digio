@@ -1,0 +1,14 @@
+INSERT INTO clientes (id, nome, cpf) VALUES (1, 'Geraldo Pedro Julio Nascimento', '05870189179');
+INSERT INTO clientes (id, nome, cpf) VALUES (2, 'Vitória Alícia Mendes', '20623850567');
+INSERT INTO clientes (id, nome, cpf) VALUES (3, 'Teresinha Daniela Galvão', '04372012950');
+INSERT INTO clientes (id, nome, cpf) VALUES (4, 'Gabriel Rafael Dias', '85067950013');
+INSERT INTO clientes (id, nome, cpf) VALUES (5, 'Andreia Emanuelly da Mata', '27737287426');
+INSERT INTO clientes (id, nome, cpf) VALUES (6, 'Natália Sandra da Cruz', '03763001590');
+INSERT INTO clientes (id, nome, cpf) VALUES (7, 'Catarina Sebastiana Analu Almeida', '88901767767');
+INSERT INTO clientes (id, nome, cpf) VALUES (8, 'Hadassa Daniela Sales', '1051252612');
+INSERT INTO clientes (id, nome, cpf) VALUES (9, 'Kaique Danilo Alves', '20634031392');
+INSERT INTO clientes (id, nome, cpf) VALUES (10, 'Pietra Antônia Brenda Silva', '74302668512');
+INSERT INTO clientes (id, nome, cpf) VALUES (11, 'Maitê Kamilly Corte Real', '022484638124');
+INSERT INTO clientes (id, nome, cpf) VALUES (12, 'Isis Isis Ramos', '29457224965');
+INSERT INTO clientes (id, nome, cpf) VALUES (13, 'Fabiana Melissa Nunes', '824643755772');
+INSERT INTO clientes (id, nome, cpf) VALUES (14, 'Ian Joaquim Giovanni Santos', '96718391344');
