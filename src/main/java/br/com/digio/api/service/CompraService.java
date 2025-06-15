@@ -12,7 +12,6 @@ import java.math.BigDecimal;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -24,16 +23,13 @@ public class CompraService {
     }
 
     public List<CompraResponseDTO> listarComprasOrdenadasPorValor() {
-        return compraRepository.findAll().stream()
-                .sorted(Comparator.comparing(Compra::getValorTotal))
-                .map(CompraResponseDTO::aPartirDaCompra)
-                .collect(Collectors.toList());
+        return compraRepository.findAllWithClienteProdutoOrderByValor()
+                .stream().map(CompraResponseDTO::aPartirDaCompra).toList();
     }
 
     public CompraResponseDTO obterMaiorCompraPorAno(String ano) {
-        return compraRepository.findAll().stream()
-                .filter(c -> Objects.equals(c.getProduto().getAnoCompra(), ano))
-                .max(Comparator.comparing(Compra::getValorTotal))
+        return compraRepository.findByAnoCompraOrderByValorDesc(ano).stream()
+                .findFirst()
                 .map(CompraResponseDTO::aPartirDaCompra)
                 .orElseThrow(() -> new NotFoundException("Nenhuma compra encontrada para o ano " + ano));
     }
@@ -62,8 +58,7 @@ public class CompraService {
     }
 
     public RecomendacaoDTO recomendarTipoMaisComprado(String cpf) {
-        return compraRepository.findAll().stream()
-                .filter(c -> cpf.equals(c.getCliente().getCpf()))
+        return compraRepository.findByClienteCpf(cpf).stream()
                 .collect(Collectors.groupingBy(
                         c -> c.getProduto().getTipoVinho(),
                         Collectors.summingInt(Compra::getQuantidade)
