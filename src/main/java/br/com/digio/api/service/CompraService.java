@@ -26,7 +26,7 @@ public class CompraService {
     public List<CompraResponseDTO> listarComprasOrdenadasPorValor() {
         return compraRepository.findAll().stream()
                 .sorted(Comparator.comparing(Compra::getValorTotal))
-                .map(this::toDTO)
+                .map(CompraResponseDTO::aPartirDaCompra)
                 .collect(Collectors.toList());
     }
 
@@ -34,7 +34,7 @@ public class CompraService {
         return compraRepository.findAll().stream()
                 .filter(c -> Objects.equals(c.getProduto().getAnoCompra(), ano))
                 .max(Comparator.comparing(Compra::getValorTotal))
-                .map(this::toDTO)
+                .map(CompraResponseDTO::aPartirDaCompra)
                 .orElseThrow(() -> new NotFoundException("Nenhuma compra encontrada para o ano " + ano));
     }
 
@@ -51,12 +51,7 @@ public class CompraService {
                                             .map(Compra::getValorTotal)
                                             .reduce(BigDecimal.ZERO, BigDecimal::add);
 
-                                    return new ClienteFielDTO(
-                                            cliente.getNome(),
-                                            cliente.getCpf(),
-                                            totalCompras,
-                                            totalGasto
-                                    );
+                                    return ClienteFielDTO.montarClienteFiel(cliente, totalCompras, totalGasto);
                                 }
                         )
                 ))
@@ -75,20 +70,7 @@ public class CompraService {
                 ))
                 .entrySet().stream()
                 .max(Map.Entry.comparingByValue())
-                .map(e -> new RecomendacaoDTO(e.getKey()))
+                .map(e -> RecomendacaoDTO.montarRecomendacao(e.getKey()))
                 .orElseThrow(() -> new NotFoundException("Nenhuma compra encontrada para o CPF informado."));
-    }
-
-    private CompraResponseDTO toDTO(Compra compra) {
-        return new CompraResponseDTO(
-                compra.getCliente().getNome(),
-                compra.getCliente().getCpf(),
-                compra.getProduto().getTipoVinho(),
-                compra.getProduto().getPreco(),
-                compra.getProduto().getSafra(),
-                compra.getProduto().getAnoCompra(),
-                compra.getQuantidade(),
-                compra.getValorTotal()
-        );
     }
 }
