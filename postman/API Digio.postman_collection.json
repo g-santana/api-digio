@@ -1,0 +1,97 @@
+{
+	"info": {
+		"_postman_id": "f798d593-fcaf-4c2b-b0c5-62bab4154166",
+		"name": "API Digio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45911017",
+		"_collection_link": "https://gabrielsantanabarroso.postman.co/workspace/Gabriel-Santana-Barroso's-Works~a8b33ee1-6ba7-446c-847a-4051e545cf9d/collection/45911017-f798d593-fcaf-4c2b-b0c5-62bab4154166?action=share&source=collection_link&creator=45911017"
+	},
+	"item": [
+		{
+			"name": "/compras",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/compras",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"compras"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/maior_compra/{ano}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/maior_compra/{{ano}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"maior_compra",
+						"{{ano}}"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/clientes_fieis",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/clientes_fieis",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes_fieis"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/recomendacao/{cpf}/tipo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/recomendacao/{{cpf}}/tipo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"recomendacao",
+						"{{cpf}}",
+						"tipo"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
